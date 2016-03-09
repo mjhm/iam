@@ -1,7 +1,8 @@
 Feature: Health Feature
 
-  Scenario: Ping Server
-    When the client requests a ping
-    Then the response is an object
-      | attribute | type    | value |
-      | ping      | boolean | true  |
+  Scenario: Pinging the Server
+    When the client requests "ping"
+    Then the response is a JSON object
+      """
+      {"ping": true}
+      """

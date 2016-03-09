@@ -1,9 +1,11 @@
-Feature: tokens Feature
+Feature: Tokens Feature
 
-
-  Background:
-    Given noop
-
-  Scenario: Tokens dummy
-    When the client requests a token
-    Then the response is a token
+  Scenario: The user logs in and gets a token
+    When the client posts to "tokens"
+      """
+      {"username": "a@rms.tst", "password": "apassword"}
+      """
+    Then the response is a JSON object
+      """
+      {"token": "abcdef"}
+      """
